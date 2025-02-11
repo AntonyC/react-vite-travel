@@ -3,3 +3,4 @@
 
 # React + TypeScript + Vite
 - pnpm create vite react-vite-travel --template react-ts
+- npm install typescript-plugin-css-modules
