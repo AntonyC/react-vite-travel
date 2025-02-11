@@ -3,4 +3,17 @@
 
 # React + TypeScript + Vite
 - pnpm create vite react-vite-travel --template react-ts
-- npm install typescript-plugin-css-modules
+
+# Css modules
+- npm install typescript-plugin-css-modules --save-dev
+- naming Conventions: styles.module.css
+- add below to tsconfig.json
+```
+{
+  "compilerOptions": {
+    "plugins": [
+      { "name": "typescript-plugin-css-modules" }
+    ]
+  }
+}
+```
