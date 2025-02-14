@@ -16,12 +16,12 @@
 - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#eslint-config-prettier)
   Turns off all rules that are unnecessary or might conflict with Prettier.
 - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier?tab=readme-ov-file#installation)
-  For flat configuration, this plugin ships with an eslint-plugin-prettier/recommended config that sets up both eslint-plugin-prettier and eslint-config-prettier in one go.
+  For flat configuration, this plugin ships with an eslint-plugin-prettier/recommended config that [sets up both eslint-plugin-prettier and eslint-config-prettier in one go](https://github.com/AntonyC/react-vite-travel/commit/7c055e181e59ab9cb9f71d53d4dfff7616dc5129).
   ```
   const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
 
   module.exports = [
     // Any other config imports go at the top
     eslintPluginPrettierRecommended,
-];
+  ];
   ```
