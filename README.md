@@ -25,3 +25,4 @@
     eslintPluginPrettierRecommended,
   ];
   ```
+# [Add router](https://github.com/AntonyC/react-vite-travel/commit/7f7a6c9f73704329bfaf641a5ce7c5384dc7b33b)
