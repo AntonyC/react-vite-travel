@@ -35,44 +35,52 @@ export const Header: React.FC = () => {
 	};
 
 	return (
-		<div className={styles["app-header"]}>
+		<div className={styles['app-header']}>
 			{/* top-header */}
-			<div className={styles["top-header"]}>
+			<div className={styles['top-header']}>
 				<div className={styles.inner}>
 					<Typography.Text>让旅游更幸福</Typography.Text>
 					<Dropdown.Button
-						style={{ marginLeft: 15 }}
+						style={{ marginLeft: 15, display: 'inline' }}
 						overlay={
 							<Menu
 								onClick={menuClickHandler}
 								items={[
-									{ key: "1", label: "中文" },
-									{ key: "2", label: "English" },
+									...languageList.map(l => {
+										return { key: l.code, label: l.name };
+									}),
+									{ key: 'new', label: t('header.add_new_language') },
 								]}
 							/>
 						}
 						icon={<GlobalOutlined />}>
-						语言
+						{language === 'zh' ? '中文' : 'English'}
 					</Dropdown.Button>
-					<Button.Group className={styles["button-group"]}>
-						<Button>注册</Button>
-						<Button>登陆</Button>
+					<Button.Group className={styles['button-group']}>
+						<Button onClick={() => navigate('/register')}>
+							{t('header.register')}
+						</Button>
+						<Button onClick={() => navigate('/signin')}>
+							{t('header.signin')}
+						</Button>
 					</Button.Group>
 				</div>
 			</div>
-			<Layout.Header className={styles["main-header"]}>
-				<img src={logo} alt='logo' className={styles["App-logo"]} />
-				<Typography.Title level={3} className={styles.title}>
-					React旅游网
-				</Typography.Title>
+			<Layout.Header className={styles['main-header']}>
+				<span onClick={() => navigate('/')}>
+					<img src={logo} alt='logo' className={styles['App-logo']} />
+					<Typography.Title level={3} className={styles.title}>
+						{t('header.title')}
+					</Typography.Title>
+				</span>
 				<Input.Search
-					placeholder={"请输入旅游目的地、主题、或关键字"}
-					className={styles["search-input"]}
+					placeholder={'请输入旅游目的地、主题、或关键字'}
+					className={styles['search-input']}
 				/>
 			</Layout.Header>
 			<Menu
-				mode={"horizontal"}
-				className={styles["main-menu"]}
+				mode={'horizontal'}
+				className={styles['main-menu']}
 				items={[
 					{ key: '1', label: t('header.home_page') },
 					{ key: '2', label: t('header.weekend') },
