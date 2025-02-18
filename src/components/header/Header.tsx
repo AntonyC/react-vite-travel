@@ -3,10 +3,36 @@ import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from '../../redux/hooks';
+import { useDispatch } from 'react-redux';
+import { Dispatch } from 'redux';
+import {
+	LanguageActionTypes,
+	addLanguageActionCreator,
+	changeLanguageActionCreator,
+} from '../../redux/language/languageActions';
 import { useTranslation } from 'react-i18next';
 
 export const Header: React.FC = () => {
+	const navigate = useNavigate();
+	const location = useLocation();
+	const params = useParams();
+	const language = useSelector(state => state.language);
+	const languageList = useSelector(state => state.languageList);
+	// const dispatch = useDispatch();
+	const dispatch = useDispatch<Dispatch<LanguageActionTypes>>();
 	const { t } = useTranslation();
+
+	const menuClickHandler = e => {
+		console.log(e);
+		if (e.key === 'new') {
+			// 处理新语言添加action
+			dispatch(addLanguageActionCreator('新语言', 'new_lang'));
+		} else {
+			dispatch(changeLanguageActionCreator(e.key));
+		}
+	};
 
 	return (
 		<div className={styles["app-header"]}>
@@ -18,6 +44,7 @@ export const Header: React.FC = () => {
 						style={{ marginLeft: 15 }}
 						overlay={
 							<Menu
+								onClick={menuClickHandler}
 								items={[
 									{ key: "1", label: "中文" },
 									{ key: "2", label: "English" },
