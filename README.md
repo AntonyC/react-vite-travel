@@ -26,3 +26,4 @@
   ];
   ```
 # [Add router](https://github.com/AntonyC/react-vite-travel/commit/7f7a6c9f73704329bfaf641a5ce7c5384dc7b33b)
+# [Add i18n code](https://github.com/AntonyC/react-vite-travel/commit/9fd240cefe6631036999dbfba26ed077d628ce8f) [react-i18next](https://react.i18next.com/getting-started)
