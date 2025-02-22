@@ -5,20 +5,20 @@ import {
 	SideMenu,
 	ProductCollection,
 	BusinessPartners,
-} from "../../components";
-import { Row, Col, Typography } from "antd";
-import { productList1, productList2, productList3 } from "./mockups";
-import sideImage from "../../assets/images/sider_2019_12-09.png";
-import sideImage2 from "../../assets/images/sider_2019_02-04.png";
-import sideImage3 from "../../assets/images/sider_2019_02-04-2.png";
-import styles from "./HomePage.module.css";
+} from '../../components';
+import { Row, Col, Typography } from 'antd';
+import { productList1, productList2, productList3 } from './mockups';
+import sideImage from '../../assets/images/sider_2019_12-09.png';
+import sideImage2 from '../../assets/images/sider_2019_02-04.png';
+import sideImage3 from '../../assets/images/sider_2019_02-04-2.png';
+import styles from './HomePage.module.css';
 
 export const HomePage = () => {
 	return (
 		<>
 			<Header />
 			{/* 页面内容 content */}
-			<div className={styles["page-content"]}>
+			<div className={styles['page-content']}>
 				<Row style={{ marginTop: 20 }}>
 					<Col span={6}>
 						<SideMenu />
