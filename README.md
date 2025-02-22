@@ -25,8 +25,11 @@
     eslintPluginPrettierRecommended,
   ];
   ```
+  
 # [Add router](https://github.com/AntonyC/react-vite-travel/commit/7f7a6c9f73704329bfaf641a5ce7c5384dc7b33b)
+
 # [Add i18n code](https://github.com/AntonyC/react-vite-travel/commit/9fd240cefe6631036999dbfba26ed077d628ce8f) - [react-i18next](https://react.i18next.com/getting-started)
+
 # [Add Redux code](https://github.com/AntonyC/react-vite-travel/commit/785b3ee75a140a2c73e34fbb94ec178ed5929011) - [react-redux](https://react-redux.js.org/introduction/getting-started)
 1. Create Action, action returns state.
 2. Create Reducer, it is pure function.
@@ -35,3 +38,12 @@
 5. Add Provider
 6. Get store value ```const language = useSelector(state => state.language)```
 7. Send action ```dispatch(changeLanguageActionCreator(e.key))```
+
+# [Redux Toolkit](https://redux-toolkit.js.org/)
+- [createSlice](https://redux-toolkit.js.org/api/createSlice)
+  `A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.`
+
+
+
+
+
