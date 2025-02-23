@@ -13,6 +13,12 @@ import {
 	changeLanguageActionCreator,
 } from '../../redux/language/languageActions';
 import { useTranslation } from 'react-i18next';
+import { jwtDecode, JwtPayload as DefaultJwtPayload } from 'jwt-decode';
+import { userSlice } from '../../redux/user/slice';
+
+interface JwtPayload extends DefaultJwtPayload {
+	username: string;
+}
 
 export const Header: React.FC = () => {
 	const navigate = useNavigate();
@@ -23,6 +29,16 @@ export const Header: React.FC = () => {
 	// const dispatch = useDispatch();
 	const dispatch = useDispatch<Dispatch<LanguageActionTypes>>();
 	const { t } = useTranslation();
+
+	const jwt = useSelector(s => s.user.token);
+	const [username, setUsername] = useState('');
+
+	useEffect(() => {
+		if (jwt) {
+			const token = jwtDecode<JwtPayload>(jwt);
+			setUsername(token.username);
+		}
+	}, [jwt]);
 
 	const menuClickHandler = e => {
 		console.log(e);
