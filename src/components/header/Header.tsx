@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
@@ -6,6 +6,7 @@ import { GlobalOutlined } from '@ant-design/icons';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from '../../redux/hooks';
 import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { Dispatch } from 'redux';
 import {
 	LanguageActionTypes,
@@ -28,6 +29,8 @@ export const Header: React.FC = () => {
 	const languageList = useSelector(state => state.language.languageList);
 	// const dispatch = useDispatch();
 	const dispatch = useDispatch<Dispatch<LanguageActionTypes>>();
+	const appDispatch = useAppDispatch();
+
 	const { t } = useTranslation();
 
 	const jwt = useSelector(s => s.user.token);
@@ -77,14 +80,25 @@ export const Header: React.FC = () => {
 						icon={<GlobalOutlined />}>
 						{language === 'zh' ? '中文' : 'English'}
 					</Dropdown.Button>
-					<Button.Group className={styles['button-group']}>
-						<Button onClick={() => navigate('/register')}>
-							{t('header.register')}
-						</Button>
-						<Button onClick={() => navigate('/signin')}>
-							{t('header.signin')}
-						</Button>
-					</Button.Group>
+					{jwt ? (
+						<Button.Group className={styles['button-group']}>
+							<span>
+								{t('header.welcome')}
+								<Typography.Text strong>{username}</Typography.Text>
+							</span>
+							<Button>{t('header.shoppingCart')}</Button>
+							<Button onClick={onLogout}>{t('header.signOut')}</Button>
+						</Button.Group>
+					) : (
+						<Button.Group className={styles['button-group']}>
+							<Button onClick={() => navigate('/register')}>
+								{t('header.register')}
+							</Button>
+							<Button onClick={() => navigate('/signIn')}>
+								{t('header.signin')}
+							</Button>
+						</Button.Group>
+					)}
 				</div>
 			</div>
 			<Layout.Header className={styles['main-header']}>

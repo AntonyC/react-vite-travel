@@ -15,7 +15,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<HomePage />} />
-					<Route path='/signin' element={<SignInPage />} />
+					<Route path='/signIn' element={<SignInPage />} />
 					<Route path='/register' element={<RegisterPage />} />
 					<Route path='/detail/:touristRouteId' element={<DetailPage />} />
 					<Route path='/search/:keywords' element={<SearchPage />} />
