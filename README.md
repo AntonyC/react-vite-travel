@@ -39,7 +39,7 @@
 6. Get store value ```const language = useSelector(state => state.language)```
 7. Send action ```dispatch(changeLanguageActionCreator(e.key))```
 
-# [Redux Toolkit](https://redux-toolkit.js.org/)
+# [Add Redux ToolKit code](https://github.com/AntonyC/react-vite-travel/commit/4f96115d0604558a15da501e152941a432d41a45) - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [createSlice](https://redux-toolkit.js.org/api/createSlice)
   `A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.`
 
