@@ -50,6 +50,11 @@ export const Header: React.FC = () => {
 		}
 	};
 
+	const onLogout = () => {
+		appDispatch(userSlice.actions.logOut());
+		navigate('/');
+	};
+
 	return (
 		<div className={styles['app-header']}>
 			{/* top-header */}
