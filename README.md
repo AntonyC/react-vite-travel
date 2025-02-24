@@ -44,7 +44,7 @@
   `A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.`
 
 # [Add jwt-decode code](https://github.com/AntonyC/react-vite-travel/commit/f50cbe94e913182a79f1e95ec5c02106c1c3d104) - [jwt-decode](https://github.com/auth0/jwt-decode?tab=readme-ov-file#getting-started)
-
+- This library doesn't validate the token, any well-formed JWT can be decoded. You should validate the token in your server-side logic by using something like express-jwt, koa-jwt, Microsoft.AspNetCore.Authentication.JwtBearer, etc.
 # [Add redux-persist code](https://github.com/AntonyC/react-vite-travel/commit/dded2bca932a9951536d3877f4d326871d66435a) - [redux-persist](https://github.com/rt2zz/redux-persist?tab=readme-ov-file#basic-usage)
 
 
