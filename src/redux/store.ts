@@ -1,9 +1,9 @@
-import languageReducer from './language/languageReducer';
+import languageReducer, { LanguageState } from './language/languageReducer';
 import { actionLog } from './middlewares/actionLog';
 import { productDetailSlice } from './productDetail/slice';
 import { productSearchSlice } from './productSearch/slice';
 import { userSlice } from './user/slice';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, Reducer } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -14,7 +14,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-	language: languageReducer,
+	language: languageReducer as unknown as Reducer<LanguageState>,
 	productDetail: productDetailSlice.reducer,
 	productSearch: productSearchSlice.reducer,
 	user: userSlice.reducer,
