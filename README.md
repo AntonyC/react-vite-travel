@@ -43,6 +43,7 @@
 - [createSlice](https://redux-toolkit.js.org/api/createSlice)
   `A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.`
 
+# [Add jwt-decode code](https://github.com/AntonyC/react-vite-travel/commit/f50cbe94e913182a79f1e95ec5c02106c1c3d104)
 
 
 
