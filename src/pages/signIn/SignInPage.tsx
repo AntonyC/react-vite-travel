@@ -1,11 +1,11 @@
-import React from "react";
-import { UserLayout } from "../../layouts/userLayout";
-import { SignInForm } from "./SignInForm";
+import React from 'react';
+import { UserLayout } from '../../layouts/userLayout';
+import { SignInForm } from './SignInForm';
 
-export const SignInPage: React.FC = (props) => {
-  return (
-    <UserLayout>
-      <SignInForm />
-    </UserLayout>
-  );
+export const SignInPage: React.FC = props => {
+	return (
+		<UserLayout>
+			<SignInForm />
+		</UserLayout>
+	);
 };

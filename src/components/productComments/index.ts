@@ -1,1 +1,1 @@
-export * from "./ProductComments"
+export * from './ProductComments';
