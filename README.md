@@ -48,8 +48,9 @@
 # [Add redux-persist code](https://github.com/AntonyC/react-vite-travel/commit/dded2bca932a9951536d3877f4d326871d66435a) - [redux-persist](https://github.com/rt2zz/redux-persist?tab=readme-ov-file#basic-usage)
 
 # [Deploy](https://hub.docker.com/repository/docker/antonycn/react-vite-travel/general)
-- Push: docker build -t react-vite-travel:1.0 .
-- Pull: docker pull antonycn/react-vite-travel
-
-
+- Build Image: docker build -t react-vite-travel:0.1 .
+- Push:
+    1. Get ```IMAGE ID```: docker images
+    2. Add tag for image: docker tag ```IMAGE ID``` antonycn/react-vite-travel:0.1
+    3. Push: docker push antonycn/react-vite-travel:0.1
 
