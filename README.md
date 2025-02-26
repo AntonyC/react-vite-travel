@@ -47,6 +47,9 @@
 - This library doesn't validate the token, any well-formed JWT can be decoded. You should validate the token in your server-side logic by using something like express-jwt, koa-jwt, Microsoft.AspNetCore.Authentication.JwtBearer, etc.
 # [Add redux-persist code](https://github.com/AntonyC/react-vite-travel/commit/dded2bca932a9951536d3877f4d326871d66435a) - [redux-persist](https://github.com/rt2zz/redux-persist?tab=readme-ov-file#basic-usage)
 
+# Deploy
+- Push: docker build -t react-vite-travel:1.0 .
+- Pull: docker pull antonycn/react-vite-travel
 
 
 
