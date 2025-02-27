@@ -56,4 +56,6 @@
     4. Pull: docker pull antonycn/react-vite-travel:0.1
     5. Start: docker run -d -p 5050:80 --name react-vite-travel antonycn/react-vite-travel:0.1
     6. Visit: http://localhost:5050
+- Delete:
+   docker rmi ```IMAGE ID```
 
