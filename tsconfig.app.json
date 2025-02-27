@@ -5,7 +5,7 @@
 		"useDefineForClassFields": true,
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
-		"skipLibCheck": true,
+		"skipLibCheck": true, // Skip type check for node_modules
 		"noImplicitAny": false,
 
 		/* Bundler mode */
@@ -13,8 +13,8 @@
 		"allowImportingTsExtensions": true,
 		"isolatedModules": true,
 		"moduleDetection": "force",
-		"noEmit": true,
-		"jsx": "react-jsx",
+		"noEmit": true, //Only check type when run tsc, no need generate files
+		"jsx": "react-jsx", //From V17, no need import React, _jsx("div", { children: "Hello" });
 
 		/* Linting */
 		"strict": true,

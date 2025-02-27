@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import axios from 'axios';
 import { searchMockData } from './mockup';
 
@@ -36,14 +36,11 @@ export const searchProduct = createAsyncThunk(
 	//     pagination: JSON.parse(response.headers["x-pagination"]),
 	//   };
 	// }
-	async (
-		paramaters: {
-			keywords: string;
-			nextPage: number | string;
-			pageSize: number | string;
-		},
-		thunkAPI
-	) => {
+	async (paramaters: {
+		keywords: string;
+		nextPage: number | string;
+		pageSize: number | string;
+	}) => {
 		const data = await new Promise(resolve => {
 			searchMockData.data[0].description = `${searchMockData.data[0].title}-${paramaters.keywords}`;
 			setTimeout(() => {

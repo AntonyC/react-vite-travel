@@ -35,16 +35,14 @@ export const UserLayout: React.FC<PropsTypes> = props => {
 					<div className={styles['content-header']}>
 						<Link to='/'>
 							<img alt='logo' className={styles['logo']} src={logo} />
-							<span className={styles['title']}>React 旅游网</span>
+							<span className={styles['title']}>React Vite Travel</span>
 						</Link>
 					</div>
-					<div className={styles['desc']}>
-						慕课网 是我朝最具影响力的 线上课程学习网站
-					</div>
+					<div className={styles['desc']}>Travel makes life better</div>
 					{props.children}
 				</div>
 			</Content>
-			<Footer style={{ textAlign: 'center' }}>Footer就不写了，太累了</Footer>
+			<Footer style={{ textAlign: 'center' }}>I am footer component</Footer>
 		</Layout>
 	);
 };

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { tokenMockData } from './mockup';
 
 interface UserState {
@@ -28,9 +28,15 @@ export const signIn = createAsyncThunk(
 	//   return data.token;
 	// }
 
-	async (paramaters: { email: string; password: string }, thunkAPI) => {
+	async (paramaters: { email: string; password: string }) => {
 		const data = await new Promise(resolve => {
 			setTimeout(() => {
+				console.log(
+					'user/signIn: email: ',
+					paramaters.email,
+					', password:',
+					paramaters.password
+				);
 				resolve(tokenMockData.token);
 			}, 1000); // Delay 1 second
 		});

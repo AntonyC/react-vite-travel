@@ -1,6 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
 import languageReducer, { LanguageState } from './language/languageReducer';
-// import thunk from 'redux-thunk';
 import { actionLog } from './middlewares/actionLog';
 import { productDetailSlice } from './productDetail/slice';
 import { combineReducers, configureStore, Reducer } from '@reduxjs/toolkit';

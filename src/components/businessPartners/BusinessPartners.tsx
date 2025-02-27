@@ -13,7 +13,7 @@ const companies = [
 	{ src: image4, title: 'Facebook' },
 ];
 
-export const BusinessPartners: React.FC = props => {
+export const BusinessPartners: React.FC = () => {
 	return (
 		<div className={styles.content}>
 			<Divider orientation='left'>

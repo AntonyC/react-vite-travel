@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import axios from 'axios';
 import { checkout } from '../shoppingCart/slice';
 import { orderMockData } from './mockup';
@@ -30,9 +30,15 @@ export const placeOrder = createAsyncThunk(
 	//   return data;
 	// }
 
-	async (parameters: { jwt: string; orderId: string }, thunkAPI) => {
+	async (parameters: { jwt: string; orderId: string }) => {
 		const data = await new Promise(resolve => {
 			setTimeout(() => {
+				console.log(
+					'order/placeOrder, jwt: ',
+					parameters.jwt,
+					', orderId: ',
+					parameters.orderId
+				);
 				resolve(orderMockData);
 			}, 1000); // Delay 1 second
 		});

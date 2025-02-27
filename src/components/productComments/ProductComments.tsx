@@ -1,4 +1,4 @@
-import { Tooltip, List } from 'antd';
+import { List } from 'antd';
 import { Comment } from '@ant-design/compatible';
 import React from 'react';
 

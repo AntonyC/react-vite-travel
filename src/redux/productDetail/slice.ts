@@ -21,7 +21,7 @@ export const getProductDetail = createAsyncThunk(
 	//   );
 	//   return data;
 	// }
-	async (touristRouteId: string, thunkAPI) => {
+	async (touristRouteId: string) => {
 		const data = await new Promise(resolve => {
 			setTimeout(() => {
 				productMockData.description = `${productMockData.description}-${touristRouteId}`;

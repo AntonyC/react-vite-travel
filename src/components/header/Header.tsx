@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from '../../redux/hooks';
 import { useDispatch } from 'react-redux';
 import { useAppDispatch } from '../../redux/hooks';
@@ -23,8 +23,8 @@ interface JwtPayload extends DefaultJwtPayload {
 
 export const Header: React.FC = () => {
 	const navigate = useNavigate();
-	const location = useLocation();
-	const params = useParams();
+	// const location = useLocation();
+	// const params = useParams();
 	const language = useSelector(state => state.language.language);
 	const languageList = useSelector(state => state.language.languageList);
 	// const dispatch = useDispatch();

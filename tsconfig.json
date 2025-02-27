@@ -1,6 +1,7 @@
 {
 	"files": [],
 	"references": [
+		// tsc -b is used to build multiple projects
 		{ "path": "./tsconfig.app.json" },
 		{ "path": "./tsconfig.node.json" }
 	]

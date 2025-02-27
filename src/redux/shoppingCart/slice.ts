@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import axios from 'axios';
 import { shoppingCartItems, checkoutMockData } from './mockup';
 
@@ -27,9 +27,10 @@ export const getShoppingCart = createAsyncThunk(
 	//   );
 	//   return data.shoppingCartItems;
 	// }
-	async (jwt: string, thunkAPI) => {
+	async (jwt: string) => {
 		const data = await new Promise(resolve => {
 			setTimeout(() => {
+				console.log('shoppingCart/getShoppingCart, jwt:', jwt);
 				resolve(shoppingCartItems);
 			}, 1000);
 		});
@@ -53,9 +54,15 @@ export const addShoppingCartItem = createAsyncThunk(
 	//   );
 	//   return data.shoppingCartItems;
 	// }
-	async (parameters: { jwt: string; touristRouteId: string }, thunkAPI) => {
+	async (parameters: { jwt: string; touristRouteId: string }) => {
 		const data = await new Promise(resolve => {
 			setTimeout(() => {
+				console.log(
+					'shoppingCart/addShoppingCartItem, jwt:',
+					parameters.jwt,
+					', touristRouteId: ',
+					parameters.touristRouteId
+				);
 				resolve([]);
 			}, 1000); // Delay 1 second
 		});
@@ -66,7 +73,7 @@ export const addShoppingCartItem = createAsyncThunk(
 
 export const checkout = createAsyncThunk(
 	'shoppingCart/checkout',
-	async (jwt: string, thunkAPI) => {
+	async (jwt: string) => {
 		// const { data } = await axios.post(
 		//   `http://localhost:8080/api/shoppingCart/checkout`,
 		//   null,
@@ -77,6 +84,7 @@ export const checkout = createAsyncThunk(
 		//   }
 		// );
 		// checkoutMockData.state = "Completed";
+		console.log('shoppingCart/checkout, jwt:', jwt);
 		return checkoutMockData;
 	}
 );
@@ -95,9 +103,15 @@ export const clearShoppingCartItem = createAsyncThunk(
 	//     }
 	//   );
 	// }
-	async (parameters: { jwt: string; itemIds: number[] }, thunkAPI) => {
+	async (parameters: { jwt: string; itemIds: number[] }) => {
 		const data = await new Promise(resolve => {
 			setTimeout(() => {
+				console.log(
+					'shoppingCart/clearShoppingCartItem, jwt:',
+					parameters.jwt,
+					', itemIds:',
+					parameters.itemIds
+				);
 				resolve([]);
 			}, 1000);
 		});
@@ -140,7 +154,7 @@ export const shoppingCartSlice = createSlice({
 			.addCase(clearShoppingCartItem.pending, state => {
 				state.loading = true;
 			})
-			.addCase(clearShoppingCartItem.fulfilled, (state, action) => {
+			.addCase(clearShoppingCartItem.fulfilled, state => {
 				state.items = [];
 				state.loading = false;
 				state.error = null;
@@ -153,7 +167,7 @@ export const shoppingCartSlice = createSlice({
 			.addCase(checkout.pending, state => {
 				state.loading = true;
 			})
-			.addCase(checkout.fulfilled, (state, action) => {
+			.addCase(checkout.fulfilled, state => {
 				state.items = [];
 				state.loading = false;
 				state.error = null;
