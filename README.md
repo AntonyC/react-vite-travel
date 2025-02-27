@@ -27,6 +27,7 @@
   ```
   
 # [Add router](https://github.com/AntonyC/react-vite-travel/commit/7f7a6c9f73704329bfaf641a5ce7c5384dc7b33b)
+- [Add private router](https://github.com/AntonyC/react-vite-travel/commit/6e2033e3b496adcc71ec200bd6fba041a335b9de)
 
 # [Add i18n code](https://github.com/AntonyC/react-vite-travel/commit/9fd240cefe6631036999dbfba26ed077d628ce8f) - [react-i18next](https://react.i18next.com/getting-started)
 
@@ -45,7 +46,10 @@
 
 # [Add jwt-decode code](https://github.com/AntonyC/react-vite-travel/commit/f50cbe94e913182a79f1e95ec5c02106c1c3d104) - [jwt-decode](https://github.com/auth0/jwt-decode?tab=readme-ov-file#getting-started)
 - This library doesn't validate the token, any well-formed JWT can be decoded. You should validate the token in your server-side logic by using something like express-jwt, koa-jwt, Microsoft.AspNetCore.Authentication.JwtBearer, etc.
+
 # [Add redux-persist code](https://github.com/AntonyC/react-vite-travel/commit/dded2bca932a9951536d3877f4d326871d66435a) - [redux-persist](https://github.com/rt2zz/redux-persist?tab=readme-ov-file#basic-usage)
+
+# [Add alias](https://github.com/AntonyC/react-vite-travel/commit/e202a228e71d54f791fa595aebbe8246e7cba796)
 
 # [Deploy](https://hub.docker.com/repository/docker/antonycn/react-vite-travel/general)
 - Build Image: docker build -t react-vite-travel:0.1 .
