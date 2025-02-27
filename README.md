@@ -53,4 +53,5 @@
     1. Get ```IMAGE ID```: docker images
     2. Add tag for image: docker tag ```IMAGE ID``` antonycn/react-vite-travel:0.1
     3. Push: docker push antonycn/react-vite-travel:0.1
+    4. Pull: docker pull antonycn/react-vite-travel:0.1
 
