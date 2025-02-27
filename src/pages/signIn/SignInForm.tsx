@@ -25,7 +25,7 @@ export const SignInForm = () => {
 		if (jwt !== null) {
 			navigate('/');
 		}
-	}, [jwt]);
+	}, [jwt, navigate]);
 
 	const onFinish = (values: any) => {
 		console.log('Success:', values);
