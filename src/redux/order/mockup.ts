@@ -1,8 +1,8 @@
 export const orderMockData = {
-	state: "Completed",
-	orderItems:[
+	state: 'Completed',
+	orderItems: [
 		{
-			touristRoute:{
+			touristRoute: {
 				departureCity: 'departureCity',
 				description: 'description',
 				discountPresent: 0.99,
@@ -11,13 +11,15 @@ export const orderMockData = {
 				price: 'price',
 				rating: 'rating',
 				title: 'title',
-				touristRoutePictures: [{url: 'https://z3.ax1x.com/2020/12/15/rMQOIJ.jpg'}],
+				touristRoutePictures: [
+					{ url: 'https://z3.ax1x.com/2020/12/15/rMQOIJ.jpg' },
+				],
 				travelDays: 'travelDays',
-				tripType: 'tripType'
+				tripType: 'tripType',
 			},
 			originalPrice: 100,
 			discountPresent: 0.99,
-			id: 11
-		}
-	]
-	};
+			id: 11,
+		},
+	],
+};
