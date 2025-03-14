@@ -52,18 +52,18 @@
 # [Add alias](https://github.com/AntonyC/react-vite-travel/commit/e202a228e71d54f791fa595aebbe8246e7cba796)
 
 # [Deploy](https://hub.docker.com/repository/docker/antonycn/react-vite-travel/general)
-- Build image localy: docker build -t react-vite-travel:0.1 .
+- Build image localy: ```docker build -t react-vite-travel:0.1 .```
 - Push to docker hub:
-    1. Get ```IMAGE ID```: docker images
-    2. Add tag for image: docker tag ```IMAGE ID``` antonycn/react-vite-travel:0.1
+    1. Get IMAGE ID: ```docker images```
+    2. Add tag for image: ```docker tag IMAGE_ID antonycn/react-vite-travel:0.1```
     3. Push: docker push antonycn/react-vite-travel:0.1
        - Push to docker hub for different platform
-         1. docker buildx create --use
-         2. docker buildx build --platform linux/amd64,linux/arm64 -t yourusername/yourimage:yourtag --push .
+         1. ```docker buildx create --use```
+         2. ```docker buildx build --platform linux/amd64,linux/arm64 -t yourusername/yourimage:yourtag --push .```
  - Pull to local:
-    1. Pull: docker pull antonycn/react-vite-travel:0.1
-    2. Start: docker run -d -p 5050:80 --name react-vite-travel antonycn/react-vite-travel:0.1
-    3. Visit: http://localhost:5050
+    1. Pull: ```docker pull antonycn/react-vite-travel:0.1```
+    2. Start: ```docker run -d -p 5050:80 --name react-vite-travel antonycn/react-vite-travel:0.1```
+    3. Visit: ```http://localhost:5050```
 - Delete:
-   docker rmi ```IMAGE ID```
+   ```docker rmi IMAGE_ID```
 
