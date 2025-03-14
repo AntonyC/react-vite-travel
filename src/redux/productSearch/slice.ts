@@ -47,6 +47,7 @@ export const searchProduct = createAsyncThunk(
 				resolve({
 					data: searchMockData.data,
 					pagination: searchMockData.pagination,
+					totalCount: searchMockData.pagination.totalCount,
 				});
 			}, 1000); // 延迟 1 秒
 		});

@@ -1,11 +1,10 @@
-import React from 'react';
-import { PaymentForm, CheckOutCard } from '../../components';
-import { MainLayout } from '../../layouts/mainLayout';
+import { PaymentForm, CheckOutCard } from '@/components';
+import { MainLayout } from '@/layouts/mainLayout';
 import { Row, Col } from 'antd';
-import { useSelector, useAppDispatch } from '../../redux/hooks';
-import { placeOrder } from '../../redux/order/slice';
+import { useSelector, useAppDispatch } from '@/redux/hooks';
+import { placeOrder } from '@/redux/order/slice';
 
-export const PlaceOrderPage: React.FC = () => {
+export const PlaceOrderPage = () => {
 	const jwt = useSelector(s => s.user.token) as string;
 	const loading = useSelector(s => s.order.loading);
 	const order = useSelector(s => s.order.currentOrder);

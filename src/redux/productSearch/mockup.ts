@@ -2,6 +2,7 @@ export const searchMockData = {
 	pagination: {
 		currentPage: 1,
 		pageSize: 3,
+		totalCount: 11,
 	},
 
 	data: [

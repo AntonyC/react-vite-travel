@@ -1,6 +1,5 @@
 import { Form, Input, Button, Checkbox } from 'antd';
 import styles from './RegisterForm.module.css';
-// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const layout = {

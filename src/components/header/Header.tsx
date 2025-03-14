@@ -1,7 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
-import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
+import {
+	Layout,
+	Typography,
+	Input,
+	Menu,
+	Button,
+	Dropdown,
+	Space,
+	ConfigProvider,
+} from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from '../../redux/hooks';
@@ -21,13 +30,10 @@ interface JwtPayload extends DefaultJwtPayload {
 	username: string;
 }
 
-export const Header: React.FC = () => {
+export const Header = () => {
 	const navigate = useNavigate();
-	// const location = useLocation();
-	// const params = useParams();
 	const language = useSelector(state => state.language.language);
 	const languageList = useSelector(state => state.language.languageList);
-	// const dispatch = useDispatch();
 	const dispatch = useDispatch<Dispatch<LanguageActionTypes>>();
 	const appDispatch = useAppDispatch();
 
@@ -49,7 +55,6 @@ export const Header: React.FC = () => {
 	const menuClickHandler = e => {
 		console.log(e);
 		if (e.key === 'new') {
-			// 处理新语言添加action
 			dispatch(addLanguageActionCreator('新语言', 'new_lang'));
 		} else {
 			dispatch(changeLanguageActionCreator(e.key));
@@ -61,30 +66,29 @@ export const Header: React.FC = () => {
 		navigate('/');
 	};
 
+	const menuProps = {
+		items: [
+			...languageList.map(l => {
+				return { key: l.code, label: l.name };
+			}),
+			{ key: 'new', label: t('header.add_new_language') },
+		],
+		onClick: menuClickHandler,
+	};
+
 	return (
 		<div className={styles['app-header']}>
-			{/* top-header */}
 			<div className={styles['top-header']}>
 				<div className={styles.inner}>
 					<Typography.Text>让旅游更幸福</Typography.Text>
 					<Dropdown.Button
-						style={{ marginLeft: 15, display: 'inline' }}
-						overlay={
-							<Menu
-								onClick={menuClickHandler}
-								items={[
-									...languageList.map(l => {
-										return { key: l.code, label: l.name };
-									}),
-									{ key: 'new', label: t('header.add_new_language') },
-								]}
-							/>
-						}
-						icon={<GlobalOutlined />}>
+						menu={menuProps}
+						icon={<GlobalOutlined />}
+						style={{ marginLeft: 15, display: 'inline' }}>
 						{language === 'zh' ? '中文' : 'English'}
 					</Dropdown.Button>
 					{jwt ? (
-						<Button.Group className={styles['button-group']}>
+						<Space className={styles['button-group']}>
 							<span>
 								{t('header.welcome')}
 								<Typography.Text strong>{username}</Typography.Text>
@@ -95,21 +99,21 @@ export const Header: React.FC = () => {
 								{t('header.shoppingCart')}({shoppingCartItems.length})
 							</Button>
 							<Button onClick={onLogout}>{t('header.signOut')}</Button>
-						</Button.Group>
+						</Space>
 					) : (
-						<Button.Group className={styles['button-group']}>
+						<Space className={styles['button-group']}>
 							<Button onClick={() => navigate('/register')}>
 								{t('header.register')}
 							</Button>
 							<Button onClick={() => navigate('/signIn')}>
 								{t('header.signin')}
 							</Button>
-						</Button.Group>
+						</Space>
 					)}
 				</div>
 			</div>
 			<Layout.Header className={styles['main-header']}>
-				<span onClick={() => navigate('/')}>
+				<span>
 					<img src={logo} alt='logo' className={styles['App-logo']} />
 					<Typography.Title level={3} className={styles.title}>
 						{t('header.title')}
@@ -121,28 +125,40 @@ export const Header: React.FC = () => {
 					onSearch={keyword => navigate('/search/' + keyword)}
 				/>
 			</Layout.Header>
-			<Menu
-				mode={'horizontal'}
-				className={styles['main-menu']}
-				items={[
-					{ key: '1', label: t('header.home_page') },
-					{ key: '2', label: t('header.weekend') },
-					{ key: '3', label: t('header.group') },
-					{ key: '4', label: t('header.backpack') },
-					{ key: '5', label: t('header.private') },
-					{ key: '6', label: t('header.cruise') },
-					{ key: '7', label: t('header.hotel') },
-					{ key: '8', label: t('header.local') },
-					{ key: '9', label: t('header.theme') },
-					{ key: '10', label: t('header.custom') },
-					{ key: '11', label: t('header.study') },
-					{ key: '12', label: t('header.visa') },
-					{ key: '13', label: t('header.enterprise') },
-					{ key: '14', label: t('header.high_end') },
-					{ key: '15', label: t('header.outdoor') },
-					{ key: '16', label: t('header.insurance') },
-				]}
-			/>
+
+			<ConfigProvider
+				theme={{
+					components: {
+						Menu: {
+							colorText: '#e6e6e6',
+							itemColor: 'white',
+							horizontalItemSelectedColor: '#faad14',
+						},
+					},
+				}}>
+				<Menu
+					mode={'horizontal'}
+					className={styles['main-menu']}
+					items={[
+						{ key: '1', label: t('header.home_page') },
+						{ key: '2', label: t('header.weekend') },
+						{ key: '3', label: t('header.group') },
+						{ key: '4', label: t('header.backpack') },
+						{ key: '5', label: t('header.private') },
+						{ key: '6', label: t('header.cruise') },
+						{ key: '7', label: t('header.hotel') },
+						{ key: '8', label: t('header.local') },
+						{ key: '9', label: t('header.theme') },
+						{ key: '10', label: t('header.custom') },
+						{ key: '11', label: t('header.study') },
+						{ key: '12', label: t('header.visa') },
+						{ key: '13', label: t('header.enterprise') },
+						{ key: '14', label: t('header.high_end') },
+						{ key: '15', label: t('header.outdoor') },
+						{ key: '16', label: t('header.insurance') },
+					]}
+				/>
+			</ConfigProvider>
 		</div>
 	);
 };

@@ -1,16 +1,12 @@
-import React from 'react';
 import styles from './ShoppingCart.module.css';
-import { MainLayout } from '../../layouts/mainLayout';
+import { MainLayout } from '@/layouts/mainLayout';
 import { Row, Col, Affix } from 'antd';
-import { ProductList, PaymentCard } from '../../components';
-import { useSelector, useAppDispatch } from '../../redux/hooks';
-import {
-	clearShoppingCartItem,
-	checkout,
-} from '../../redux/shoppingCart/slice';
+import { ProductList, PaymentCard } from '@/components';
+import { useSelector, useAppDispatch } from '@/redux/hooks';
+import { clearShoppingCartItem, checkout } from '@/redux/shoppingCart/slice';
 import { useNavigate } from 'react-router-dom';
 
-export const ShoppingCartPage: React.FC = () => {
+export const ShoppingCartPage = () => {
 	const loading = useSelector(s => s.shoppingCart.loading);
 	const shoppingCartItems = useSelector(s => s.shoppingCart.items);
 	const jwt = useSelector(s => s.user.token) as string;

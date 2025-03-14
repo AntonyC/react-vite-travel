@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Spin, Row, Col, Divider, Typography, Anchor, Menu } from 'antd';
 import styles from './DetailPage.module.css';
-import {
-	Header,
-	Footer,
-	ProductIntro,
-	ProductComments,
-} from '../../components';
+import { Header, Footer, ProductIntro, ProductComments } from '@/components';
 import { DatePicker } from 'antd';
 import { commentMockData } from './mockup';
-import { getProductDetail } from '../../redux/productDetail/slice';
-import { useSelector, useAppDispatch } from '../../redux/hooks';
+import { getProductDetail } from '@/redux/productDetail/slice';
+import { useSelector, useAppDispatch } from '@/redux/hooks';
 
 const { RangePicker } = DatePicker;
 
@@ -22,7 +17,7 @@ type MatchParams = {
 // type str = "str";
 // interface str2 = "str";
 
-export const DetailPage: React.FC = () => {
+export const DetailPage = () => {
 	const { touristRouteId } = useParams<MatchParams>();
 
 	const loading = useSelector(state => state.productDetail.loading);

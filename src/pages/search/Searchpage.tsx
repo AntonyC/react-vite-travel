@@ -1,16 +1,16 @@
 import styles from './SearchPage.module.css';
-import React, { useEffect } from 'react';
-import { Header, Footer, FilterArea, ProductList } from '../../components';
+import { useEffect } from 'react';
+import { Header, Footer, FilterArea, ProductList } from '@/components';
 import { useParams, useLocation } from 'react-router-dom';
 import { Spin } from 'antd';
-import { searchProduct } from '../../redux/productSearch/slice';
-import { useSelector, useAppDispatch } from '../../redux/hooks';
+import { searchProduct } from '@/redux/productSearch/slice';
+import { useSelector, useAppDispatch } from '@/redux/hooks';
 
 type MatchParams = {
 	keywords: string;
 };
 
-export const SearchPage: React.FC = () => {
+export const SearchPage = () => {
 	const { keywords } = useParams<MatchParams>();
 
 	const loading = useSelector(state => state.productSearch.loading);

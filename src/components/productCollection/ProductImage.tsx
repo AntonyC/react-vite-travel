@@ -1,4 +1,3 @@
-import React from 'react';
 import { Image, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 
@@ -10,13 +9,13 @@ interface PropsType {
 	title: string;
 }
 
-export const ProductImage: React.FC<PropsType> = ({
+export const ProductImage = ({
 	id,
 	size,
 	imageSrc,
 	price,
 	title,
-}) => {
+}: PropsType) => {
 	return (
 		<Link to={`/detail/${id}`}>
 			{size == 'large' ? (
@@ -25,7 +24,7 @@ export const ProductImage: React.FC<PropsType> = ({
 				<Image src={imageSrc} height={120} width={240} />
 			)}
 			<div>
-				<Typography.Text type='secondary'>{title.slice(0, 25)}</Typography.Text>
+				<Typography.Text type='secondary'>{title.slice(0, 12)}</Typography.Text>
 				<Typography.Text type='danger' strong>
 					¥ {price} 起
 				</Typography.Text>

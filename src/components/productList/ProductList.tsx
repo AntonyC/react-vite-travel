@@ -52,11 +52,7 @@ const IconText = ({ icon, text }) => (
 	</Space>
 );
 
-export const ProductList: React.FC<PropsType> = ({
-	data,
-	paging,
-	onPageChange,
-}) => {
+export const ProductList = ({ data, paging, onPageChange }: PropsType) => {
 	const products = listData(data);
 	return (
 		<List
