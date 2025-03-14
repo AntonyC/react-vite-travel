@@ -33,13 +33,13 @@ interface PropsType {
 	onCheckout: () => void;
 }
 
-export const PaymentCard: React.FC<PropsType> = ({
+export const PaymentCard = ({
 	loading,
 	originalPrice,
 	price,
 	onShoppingCartClear,
 	onCheckout,
-}) => {
+}: PropsType) => {
 	const paymentData: Item[] = [
 		{
 			key: 1,

@@ -7,7 +7,7 @@ interface PropsType {
 	children?: React.ReactNode;
 }
 
-export const FilterTag: React.FC<PropsType> = props => {
+export const FilterTag = (props: PropsType) => {
 	const [checked, setChecked] = useState(false);
 
 	const handleChange = checked => {

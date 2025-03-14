@@ -32,11 +32,7 @@ interface PropsType {
 	onCheckout: () => void;
 }
 
-export const CheckOutCard: React.FC<PropsType> = ({
-	loading,
-	order,
-	onCheckout,
-}) => {
+export const CheckOutCard = ({ loading, order, onCheckout }: PropsType) => {
 	const navigate = useNavigate();
 
 	const paymentData: OrderItem[] = order

@@ -36,7 +36,7 @@ interface RowType {
 	key: number;
 }
 
-export const ProductIntro: React.FC<PropsType> = ({
+export const ProductIntro = ({
 	title,
 	shortDescription,
 	price,
@@ -44,7 +44,7 @@ export const ProductIntro: React.FC<PropsType> = ({
 	discount,
 	rating,
 	pictures,
-}) => {
+}: PropsType) => {
 	const tableDataSource: RowType[] = [
 		{
 			key: 0,

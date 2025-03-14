@@ -1,6 +1,5 @@
 import { List } from 'antd';
 import { Comment } from '@ant-design/compatible';
-import React from 'react';
 
 interface PropsType {
 	data: {
@@ -11,7 +10,7 @@ interface PropsType {
 	}[];
 }
 
-export const ProductComments: React.FC<PropsType> = ({ data }) => {
+export const ProductComments = ({ data }: PropsType) => {
 	return (
 		<List
 			dataSource={data}
